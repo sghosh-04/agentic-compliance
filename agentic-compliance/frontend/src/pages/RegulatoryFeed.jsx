@@ -31,11 +31,12 @@ export default function RegulatoryFeed() {
   const [selectedSource, setSelectedSource] = useState('ALL');
   const [searchQuery, setSearchQuery] = useState('');
 
-  const fetchFeed = useCallback(async () => {
+  const fetchFeed = useCallback(async (forceRefresh = false) => {
     setLoading(true);
     setError('');
     try {
-      const data = await apiFetch('/feed/regulatory');
+      const endpoint = forceRefresh ? '/feed/regulatory?refresh=true' : '/feed/regulatory';
+      const data = await apiFetch(endpoint);
       setItems(data.items || []);
       setWarnings(data.warnings || []);
       setLastUpdated(new Date());
@@ -131,7 +132,7 @@ export default function RegulatoryFeed() {
           </div>
           
           <button
-            onClick={fetchFeed}
+            onClick={() => fetchFeed(true)}
             disabled={loading}
             className="p-2.5 bg-slate-100 hover:bg-slate-200 disabled:opacity-50 text-slate-600 border border-slate-200 rounded-xl transition cursor-pointer"
             title="Sync Live Feeds"
