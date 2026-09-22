@@ -1,0 +1,406 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  --color-brand-50: #fff7ed;
+  --color-brand-100: #ffedd5;
+  --color-brand-500: #f97316;
+  --color-brand-600: #ea580c;
+  --color-brand-700: #c2410c;
+  
+  --color-dark-bg: #09090b;
+  --color-dark-card: rgba(15, 15, 20, 0.7);
+  --color-dark-border: rgba(30, 41, 59, 0.7);
+}
+
+:root {
+  font-family: 'Outfit', sans-serif;
+  color-scheme: light;
+}
+
+body {
+  background-color: #f8fafc;
+  color: #1e293b;
+  margin: 0;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Premium Light Animated Background with Warm Amber, Orange, and Emerald Blurs */
+.animated-bg-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+  background: linear-gradient(135deg, #fef9f5 0%, #fffbeb 40%, #fdf6ec 70%, #fefcf9 100%);
+}
+
+.animated-bg-blob {
+  position: absolute;
+  filter: blur(120px);
+  z-index: 0;
+  opacity: 0.85;
+  animation: float 25s infinite ease-in-out alternate;
+}
+
+.blob-1 {
+  top: -10%;
+  left: -10%;
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.22) 0%, transparent 70%);
+  animation-delay: 0s;
+}
+
+.blob-2 {
+  bottom: -20%;
+  right: -10%;
+  width: 70vw;
+  height: 70vw;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.25) 0%, transparent 70%);
+  animation-delay: -5s;
+}
+
+.blob-3 {
+  top: 30%;
+  left: 40%;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, rgba(120, 53, 15, 0.12) 0%, transparent 70%);
+  animation-delay: -10s;
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(3%, 8%) scale(1.05); }
+  66% { transform: translate(-3%, 4%) scale(0.95); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+/* Premium Light Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.6);
+}
+
+/* ── Extreme 3D Glassmorphism & Edgy Lighting ── */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 
+    0 10px 30px 0 rgba(15, 23, 42, 0.05),
+    inset 0 2px 4px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -1px 2px 0 rgba(0, 0, 0, 0.03);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 
+    0 6px 20px 0 rgba(15, 23, 42, 0.04),
+    inset 0 2px 3px 0 rgba(255, 255, 255, 0.9);
+  transition: all 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 
+    0 16px 36px 0 rgba(15, 23, 42, 0.09),
+    inset 0 2px 4px 0 rgba(255, 255, 255, 1);
+}
+
+/* --- EXTREME 3D GLASS SIDEBAR --- */
+.glass-sidebar {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  border-right: 1.5px solid rgba(255, 255, 255, 0.6);
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 
+    0 20px 45px rgba(0, 0, 0, 0.07), 
+    inset 0 0 0 1px rgba(255, 255, 255, 0.8),
+    inset 4px 4px 18px rgba(255, 255, 255, 0.95),
+    inset -4px -4px 18px rgba(245, 158, 11, 0.05);
+}
+
+.glass-icon-btn {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 1.5px solid rgba(255, 255, 255, 1);
+  box-shadow: 
+    2px 4px 8px rgba(0, 0, 0, 0.04),
+    inset 1px 1px 2px rgba(255, 255, 255, 1);
+  transition: all 0.2s;
+}
+
+.glass-pill-inactive {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(15px);
+  border-radius: 16px;
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 
+    2px 4px 10px rgba(0, 0, 0, 0.03),
+    inset 1px 1px 3px rgba(255, 255, 255, 0.95);
+  transition: all 0.2s;
+}
+
+.glass-pill-inactive:hover {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(245, 158, 11, 0.3);
+  box-shadow: 
+    4px 8px 18px rgba(245, 158, 11, 0.08),
+    inset 2px 2px 4px rgba(255, 255, 255, 1);
+}
+
+/* 3D Glass Pill for Active State with Warm Orange/Amber Glow */
+.glass-pill-active {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(255, 255, 255, 1);
+  border-radius: 16px;
+  box-shadow: 
+    0 12px 24px -4px rgba(249, 115, 22, 0.25),
+    0 2px 6px rgba(245, 158, 11, 0.15),
+    inset 0 4px 6px rgba(255, 255, 255, 1),
+    inset 0 -2px 5px rgba(249, 115, 22, 0.08);
+  color: #0f172a;
+  position: relative;
+  z-index: 10;
+}
+
+/* ── 3D DASHBOARD ICON BOX ── */
+.dash-icon-box {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1.5px solid rgba(255, 255, 255, 1);
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.06),
+    inset 0 2px 3px rgba(255, 255, 255, 1),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.04);
+  border-radius: 12px;
+  transition: all 0.25s ease;
+}
+
+/* ── 3D DASHBOARD CARDS WITH RESPECTIVE ICON COLOR LIGHT GLOWS ── */
+.dash-card {
+  position: relative;
+  transition: all 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  background: #ffffff;
+  border: 1.5px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.04),
+    inset 0 2px 4px rgba(255, 255, 255, 1);
+}
+
+.dash-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 18px 36px -6px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(255, 255, 255, 1),
+    inset 0 3px 6px rgba(255, 255, 255, 1);
+}
+
+.dash-card.dash-card-active,
+.dash-card:active {
+  transform: translateY(-2px) scale(0.995);
+  border: 1.5px solid rgba(255, 255, 255, 1) !important;
+  z-index: 5;
+}
+
+/* ── 1. Mustard Yellow / Amber Glow Card ── */
+.dash-card-amber:hover {
+  border-color: rgba(245, 158, 11, 0.5) !important;
+  box-shadow: 
+    0 18px 36px -6px rgba(245, 158, 11, 0.25),
+    inset 0 3px 5px #ffffff;
+}
+.dash-card-amber:hover .dash-icon-box {
+  background: rgba(254, 243, 199, 0.9);
+  border-color: rgba(245, 158, 11, 0.4);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+.dash-card-amber.dash-card-active,
+.dash-card-amber:active {
+  background: linear-gradient(135deg, rgba(254, 243, 199, 0.92) 0%, rgba(255, 255, 255, 0.98) 100%) !important;
+  border-color: rgba(245, 158, 11, 0.75) !important;
+  box-shadow: 
+    0 18px 40px -5px rgba(245, 158, 11, 0.45),
+    0 0 0 2px rgba(245, 158, 11, 0.3),
+    inset 0 4px 8px #ffffff,
+    inset 0 -3px 6px rgba(245, 158, 11, 0.2) !important;
+  animation: pulse-amber-glow 2.5s infinite ease-in-out;
+}
+@keyframes pulse-amber-glow {
+  0%, 100% { 
+    box-shadow: 0 18px 40px -5px rgba(245, 158, 11, 0.4), 0 0 0 2px rgba(245, 158, 11, 0.25), inset 0 4px 8px #fff, inset 0 -3px 6px rgba(245, 158, 11, 0.15); 
+  }
+  50% { 
+    box-shadow: 0 24px 48px -4px rgba(245, 158, 11, 0.6), 0 0 0 3px rgba(245, 158, 11, 0.45), inset 0 4px 8px #fff, inset 0 -3px 6px rgba(245, 158, 11, 0.25); 
+  }
+}
+
+/* ── 2. Vibrant Warm Orange Glow Card ── */
+.dash-card-orange:hover {
+  border-color: rgba(249, 115, 22, 0.5) !important;
+  box-shadow: 
+    0 18px 36px -6px rgba(249, 115, 22, 0.25),
+    inset 0 3px 5px #ffffff;
+}
+.dash-card-orange:hover .dash-icon-box {
+  background: rgba(255, 237, 213, 0.9);
+  border-color: rgba(249, 115, 22, 0.4);
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+}
+.dash-card-orange.dash-card-active,
+.dash-card-orange:active {
+  background: linear-gradient(135deg, rgba(255, 237, 213, 0.92) 0%, rgba(255, 255, 255, 0.98) 100%) !important;
+  border-color: rgba(249, 115, 22, 0.75) !important;
+  box-shadow: 
+    0 18px 40px -5px rgba(249, 115, 22, 0.45),
+    0 0 0 2px rgba(249, 115, 22, 0.3),
+    inset 0 4px 8px #ffffff,
+    inset 0 -3px 6px rgba(249, 115, 22, 0.2) !important;
+  animation: pulse-orange-glow 2.5s infinite ease-in-out;
+}
+@keyframes pulse-orange-glow {
+  0%, 100% { 
+    box-shadow: 0 18px 40px -5px rgba(249, 115, 22, 0.4), 0 0 0 2px rgba(249, 115, 22, 0.25), inset 0 4px 8px #fff, inset 0 -3px 6px rgba(249, 115, 22, 0.15); 
+  }
+  50% { 
+    box-shadow: 0 24px 48px -4px rgba(249, 115, 22, 0.6), 0 0 0 3px rgba(249, 115, 22, 0.45), inset 0 4px 8px #fff, inset 0 -3px 6px rgba(249, 115, 22, 0.25); 
+  }
+}
+
+/* ── 3. Emerald Green (Posture) Glow Card ── */
+.dash-card-emerald:hover {
+  border-color: rgba(16, 185, 129, 0.5) !important;
+  box-shadow: 
+    0 18px 36px -6px rgba(16, 185, 129, 0.25),
+    inset 0 3px 5px #ffffff;
+}
+.dash-card-emerald:hover .dash-icon-box {
+  background: rgba(209, 250, 229, 0.9);
+  border-color: rgba(16, 185, 129, 0.4);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+.dash-card-emerald.dash-card-active,
+.dash-card-emerald:active {
+  background: linear-gradient(135deg, rgba(236, 253, 245, 0.95) 0%, rgba(255, 255, 255, 0.98) 100%) !important;
+  border-color: rgba(16, 185, 129, 0.75) !important;
+  box-shadow: 
+    0 18px 40px -5px rgba(16, 185, 129, 0.45),
+    0 0 0 2px rgba(16, 185, 129, 0.3),
+    inset 0 4px 8px #ffffff,
+    inset 0 -3px 6px rgba(16, 185, 129, 0.2) !important;
+  animation: pulse-emerald-glow 2.5s infinite ease-in-out;
+}
+@keyframes pulse-emerald-glow {
+  0%, 100% { 
+    box-shadow: 0 18px 40px -5px rgba(16, 185, 129, 0.4), 0 0 0 2px rgba(16, 185, 129, 0.25), inset 0 4px 8px #fff, inset 0 -3px 6px rgba(16, 185, 129, 0.15); 
+  }
+  50% { 
+    box-shadow: 0 24px 48px -4px rgba(16, 185, 129, 0.6), 0 0 0 3px rgba(16, 185, 129, 0.45), inset 0 4px 8px #fff, inset 0 -3px 6px rgba(16, 185, 129, 0.25); 
+  }
+}
+
+/* ── 4. Rose / Red (Gaps & Risks) Glow Card ── */
+.dash-card-rose:hover {
+  border-color: rgba(244, 63, 94, 0.5) !important;
+  box-shadow: 
+    0 18px 36px -6px rgba(244, 63, 94, 0.25),
+    inset 0 3px 5px #ffffff;
+}
+.dash-card-rose:hover .dash-icon-box {
+  background: rgba(255, 228, 230, 0.9);
+  border-color: rgba(244, 63, 94, 0.4);
+  box-shadow: 0 4px 12px rgba(244, 63, 94, 0.3);
+}
+.dash-card-rose.dash-card-active,
+.dash-card-rose:active {
+  background: linear-gradient(135deg, rgba(255, 241, 242, 0.95) 0%, rgba(255, 255, 255, 0.98) 100%) !important;
+  border-color: rgba(244, 63, 94, 0.75) !important;
+  box-shadow: 
+    0 18px 40px -5px rgba(244, 63, 94, 0.45),
+    0 0 0 2px rgba(244, 63, 94, 0.3),
+    inset 0 4px 8px #ffffff,
+    inset 0 -3px 6px rgba(244, 63, 94, 0.2) !important;
+  animation: pulse-rose-glow 2.5s infinite ease-in-out;
+}
+@keyframes pulse-rose-glow {
+  0%, 100% { 
+    box-shadow: 0 18px 40px -5px rgba(244, 63, 94, 0.4), 0 0 0 2px rgba(244, 63, 94, 0.25), inset 0 4px 8px #fff, inset 0 -3px 6px rgba(244, 63, 94, 0.15); 
+  }
+  50% { 
+    box-shadow: 0 24px 48px -4px rgba(244, 63, 94, 0.6), 0 0 0 3px rgba(244, 63, 94, 0.45), inset 0 4px 8px #fff, inset 0 -3px 6px rgba(244, 63, 94, 0.25); 
+  }
+}
+
+/* ── 5. Dark Brown / Charcoal Glow Card ── */
+.dash-card-brown:hover,
+.dash-card-slate:hover {
+  border-color: rgba(120, 53, 15, 0.5) !important;
+  box-shadow: 
+    0 18px 36px -6px rgba(120, 53, 15, 0.25),
+    inset 0 3px 5px #ffffff;
+}
+.dash-card-brown:hover .dash-icon-box,
+.dash-card-slate:hover .dash-icon-box {
+  background: rgba(254, 243, 199, 0.8);
+  border-color: rgba(120, 53, 15, 0.3);
+  box-shadow: 0 4px 12px rgba(120, 53, 15, 0.2);
+}
+.dash-card-brown.dash-card-active,
+.dash-card-slate.dash-card-active,
+.dash-card-brown:active,
+.dash-card-slate:active {
+  background: linear-gradient(135deg, rgba(254, 249, 240, 0.95) 0%, rgba(255, 255, 255, 0.98) 100%) !important;
+  border-color: rgba(120, 53, 15, 0.75) !important;
+  box-shadow: 
+    0 18px 40px -5px rgba(120, 53, 15, 0.35),
+    0 0 0 2px rgba(120, 53, 15, 0.25),
+    inset 0 4px 8px #ffffff,
+    inset 0 -3px 6px rgba(120, 53, 15, 0.15) !important;
+  animation: pulse-brown-glow 2.5s infinite ease-in-out;
+}
+@keyframes pulse-brown-glow {
+  0%, 100% { 
+    box-shadow: 0 18px 40px -5px rgba(120, 53, 15, 0.35), 0 0 0 2px rgba(120, 53, 15, 0.2), inset 0 4px 8px #fff, inset 0 -3px 6px rgba(120, 53, 15, 0.1); 
+  }
+  50% { 
+    box-shadow: 0 24px 48px -4px rgba(120, 53, 15, 0.5), 0 0 0 3px rgba(120, 53, 15, 0.35), inset 0 4px 8px #fff, inset 0 -3px 6px rgba(120, 53, 15, 0.2); 
+  }
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.3);
+  border-radius: 9999px;
+}
